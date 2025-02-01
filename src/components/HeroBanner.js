@@ -10,12 +10,13 @@ const HeroBanner = () => {
 }} position = "relative" p="20px">
     <Typography color="#FF2625"
         fontWeight="600" fontSize="26px">
-        Fitness Club
+        Get Strong Club
     </Typography>
     <Typography fontWeight={700}
     sx={{ fontSize: {lg: '44px', xs: '40px'}}} mb="23px" mt="30px">
         
-        Sweat, Smile <br /> and Repeat
+        
+    Build Your Perfect Workout.  <br /> Your Way.  <br /> Anytime.
     </Typography>
     <Typography fontSize="22px"
     LineHeight="35px" mb={4}>
