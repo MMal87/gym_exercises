@@ -20,8 +20,13 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
 const handleSearch = async () => {
 
   if(search){
-    const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions);
-
+    const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises?limit=1300', exerciseOptions);
+    console.log('Full exercise data received:', exercisesData);
+    console.log('Sample exercises:', {
+      middle1: exercisesData[Math.floor(exercisesData.length/2)],
+      middle2: exercisesData[Math.floor(exercisesData.length/2) + 1],
+      middle3: exercisesData[Math.floor(exercisesData.length/2) + 2]
+    });
     const searchedExercises = exercisesData.filter((exercise) => exercise.name.toLowerCase().includes(search)
     || exercise.target.toLowerCase().includes(search)
     || exercise.equipment.toLowerCase().includes(search)
