@@ -13,13 +13,21 @@ import SimilarExercises from '../components/SimilarExercises';
 const ExerciseDetail = () => {
     const [exerciseDetail, setExerciseDetail] = useState({});
     const {id} = useParams();
-
+    console.log("useParams Output:", useParams()); // <-- Log everything
+    console.log(`Extracted ID from URL: ${id}, Type: ${typeof id}`);
+    
     useEffect(() => {
         const fetchExercisesData = async () => {
             const exerciseDbUrl = 'https://exercisedb.p.rapidapi.com';
             const youtubeSearchUrl ='https://youtube-search-and-download.p.rapidapi.com'
+            
 
-            const exerciseDetailData = await fetchData('${exerciseDburl}/exercises/${id}', exerciseOptions);
+
+            const exerciseDetailData = await fetchData(`${exerciseDbUrl}/exercises/exercise/${id}`, exerciseOptions);
+            console.log("Exercise ID:", id);
+            console.log("Fetching from URL:", `${exerciseDbUrl}/exercises/exercise/${id}`);
+            
+            console.log({exerciseDetailData});
             setExerciseDetail(exerciseDetailData);
         }
 

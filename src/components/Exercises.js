@@ -24,7 +24,9 @@ const Exercises = ( { exercises, setExercises, bodyPart}) => {
       let exercisesData = [];
 
       if(bodyPart === 'all') {
-        exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises?limit=5000', exerciseOptions);
+        exercisesData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises?limit=5000`, exerciseOptions);
+        console.log("Fetched Exercises:", exercises);
+
       } else {
         exercisesData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`, exerciseOptions);
 
