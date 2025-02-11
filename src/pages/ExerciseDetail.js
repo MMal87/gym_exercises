@@ -29,6 +29,8 @@ const ExerciseDetail = () => {
             
             console.log({exerciseDetailData});
             setExerciseDetail(exerciseDetailData);
+
+            const exerciseVideosData = await fetchData(`${youtubeSearchUrl}/search?q=${exerciseDetailData.name}`, exerciseOptions);
         }
 
         fetchExercisesData();
