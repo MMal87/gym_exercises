@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import {useParams} from 'react-router-dom';
 import { Box } from '@mui/material';
 
-import {exerciseOptions, fetchData} from '../utils/fetchData';
+import {exerciseOptions, youtubeOptions, fetchData} from '../utils/fetchData';
 import Detail from '../components/Detail';
 import ExerciseVideos from '../components/ExerciseVideos';
 
@@ -12,9 +12,9 @@ import SimilarExercises from '../components/SimilarExercises';
 
 const ExerciseDetail = () => {
     const [exerciseDetail, setExerciseDetail] = useState({});
+    const [exerciseVideos, setExerciseVideos] = useState({});
     const {id} = useParams();
-    console.log("useParams Output:", useParams()); // <-- Log everything
-    console.log(`Extracted ID from URL: ${id}, Type: ${typeof id}`);
+   
     
     useEffect(() => {
         const fetchExercisesData = async () => {
@@ -24,13 +24,13 @@ const ExerciseDetail = () => {
 
 
             const exerciseDetailData = await fetchData(`${exerciseDbUrl}/exercises/exercise/${id}`, exerciseOptions);
-            console.log("Exercise ID:", id);
-            console.log("Fetching from URL:", `${exerciseDbUrl}/exercises/exercise/${id}`);
+          
             
-            console.log({exerciseDetailData});
             setExerciseDetail(exerciseDetailData);
 
-            const exerciseVideosData = await fetchData(`${youtubeSearchUrl}/search?q=${exerciseDetailData.name}`, exerciseOptions);
+            const exerciseVideosData = await fetchData(`${youtubeSearchUrl}/search?q=${exerciseDetailData.name}`, youtubeOptions);
+            setExerciseVideos(exerciseVideosData);
+
         }
 
         fetchExercisesData();
@@ -39,7 +39,7 @@ const ExerciseDetail = () => {
   return (
     <Box>
         <Detail exerciseDetail={exerciseDetail} />
-        <ExerciseVideos />
+        <ExerciseVideos eexerciseVideos-={exerciseVideos} name={exerciseDetail.name}     />
         <SimilarExercises />
 
     </Box>

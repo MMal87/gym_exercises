@@ -27,7 +27,6 @@ const Home = () => {
           bodyPart={bodyPart} 
            />
 
-           <Calculations />
     </Box>
   )
 }
