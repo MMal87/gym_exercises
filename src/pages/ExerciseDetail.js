@@ -8,38 +8,42 @@ import ExerciseVideos from '../components/ExerciseVideos';
 
 import SimilarExercises from '../components/SimilarExercises';
 
-
-
 const ExerciseDetail = () => {
     const [exerciseDetail, setExerciseDetail] = useState({});
-    const [exerciseVideos, setExerciseVideos] = useState({});
+    const [exerciseVideos, setExerciseVideos] = useState([]);
     const {id} = useParams();
    
     
     useEffect(() => {
         const fetchExercisesData = async () => {
-            const exerciseDbUrl = 'https://exercisedb.p.rapidapi.com';
-            const youtubeSearchUrl ='https://youtube-search-and-download.p.rapidapi.com'
-            
+            try {
+                const exerciseDbUrl = 'https://exercisedb.p.rapidapi.com';
+                const youtubeSearchUrl ='https://youtube-search-and-download.p.rapidapi.com'
 
+                const exerciseDetailData = await fetchData(`${exerciseDbUrl}/exercises/exercise/${id}`, exerciseOptions);
+                setExerciseDetail(exerciseDetailData);
 
-            const exerciseDetailData = await fetchData(`${exerciseDbUrl}/exercises/exercise/${id}`, exerciseOptions);
-          
-            
-            setExerciseDetail(exerciseDetailData);
+                const exerciseVideosData = await fetchData(`${youtubeSearchUrl}/search?query=${exerciseDetailData.name}`, youtubeOptions);
+                console.log('Raw YouTube API response:', exerciseVideosData);
+                
+                // Check if we have contents and set them properly
+                if (exerciseVideosData?.contents) {
+                    setExerciseVideos(exerciseVideosData.contents);
+                } else {
+                    console.error('No contents in API response:', exerciseVideosData);
+                }
 
-            const exerciseVideosData = await fetchData(`${youtubeSearchUrl}/search?q=${exerciseDetailData.name}`, youtubeOptions);
-            setExerciseVideos(exerciseVideosData);
-
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
         }
-
         fetchExercisesData();
     }, [id]);
 
   return (
     <Box>
         <Detail exerciseDetail={exerciseDetail} />
-        <ExerciseVideos eexerciseVideos-={exerciseVideos} name={exerciseDetail.name}     />
+        <ExerciseVideos exerciseVideos={exerciseVideos} name={exerciseDetail.name}     />
         <SimilarExercises />
 
     </Box>
