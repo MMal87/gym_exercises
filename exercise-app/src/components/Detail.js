@@ -48,7 +48,7 @@ const Detail = ({ exerciseDetail }) => {
           {name}
         </Typography>
         <Typography variant="h5">
-          Exercises help you to become stronger and more flexible. {name} will
+          Exercise helps you to become stronger and more flexible. {name} will
           target your {bodyPart}.
         </Typography>
         {extraDetail.map((item) => (
