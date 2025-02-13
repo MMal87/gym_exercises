@@ -1,37 +1,25 @@
 import React from 'react';
 import { Stack, Typography } from '@mui/material';
+import Image from 'next/image';
 
-// Import icons for each group
-import allIcon from '../assets/icons/all.png';
-import backIcon from '../assets/icons/back.png';
-import cardioIcon from '../assets/icons/cardio.png';
-import chestIcon from '../assets/icons/chest.png';
-import lowerArmsIcon from '../assets/icons/lowerArms.png';
-import lowerLegsIcon from '../assets/icons/lowerLegs.png';
-import neckIcon from '../assets/icons/neck.png';
-import shouldersIcon from '../assets/icons/shoulders.png';
-import upperArmsIcon from '../assets/icons/upperArms.png';
-import upperLegsIcon from '../assets/icons/upperLegs.png';
-import coreIcon from '../assets/icons/core.png';
-
-// Map body parts to their corresponding icons
+// Map body parts to their corresponding icon paths
 const iconsMap = {
-  all: allIcon,
-  back: backIcon,
-  cardio: cardioIcon,
-  chest: chestIcon,
-  'lower arms': lowerArmsIcon,
-  'lower legs': lowerLegsIcon,
-  neck: neckIcon,
-  shoulders: shouldersIcon,
-  'upper arms': upperArmsIcon,
-  'upper legs': upperLegsIcon,
-  core: coreIcon
+  all: '/icons/all.png',
+  back: '/icons/back.png',
+  cardio: '/icons/cardio.png',
+  chest: '/icons/chest.png',
+  'lower arms': '/icons/lowerArms.png',
+  'lower legs': '/icons/lowerLegs.png',
+  neck: '/icons/neck.png',
+  shoulders: '/icons/shoulders.png',
+  'upper arms': '/icons/upperArms.png',
+  'upper legs': '/icons/upperLegs.png',
+  core: '/icons/core.png'
 };
 
 const BodyPart = ({ item, setBodyPart, bodyPart }) => {
-  // Get the icon, fallback to 'all' if not found
-  const icon = iconsMap[item.toLowerCase()] || allIcon;
+  // Get the icon path, fallback to 'all' if not found
+  const iconPath = iconsMap[item.toLowerCase()] || '/icons/all.png';
 
   return (
     <Stack
@@ -53,8 +41,20 @@ const BodyPart = ({ item, setBodyPart, bodyPart }) => {
         window.scrollTo({ top: 1800, left: 100, behavior: 'smooth' });
       }}
     >
-      <img src={icon} alt={item} style={{ width: '40px', height: '40px' }} />
-      <Typography fontSize="24px" fontWeight="bold" color="#3A1212" textTransform="capitalize">
+      <div style={{ position: 'relative', width: '40px', height: '40px' }}>
+        <Image 
+          src={iconPath}
+          alt={item}
+          fill
+          style={{ objectFit: 'contain' }}
+        />
+      </div>
+      <Typography 
+        fontSize="24px" 
+        fontWeight="bold" 
+        color="#3A1212" 
+        textTransform="capitalize"
+      >
         {item}
       </Typography>
     </Stack>

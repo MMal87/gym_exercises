@@ -1,19 +1,21 @@
 import React, {useEffect, useState} from 'react'
-import {useParams} from 'react-router-dom';
+import { useRouter } from 'next/router';  
 import { Box } from '@mui/material';
 
-import {exerciseOptions, youtubeOptions, fetchData} from '../../exercise-app/src/utils/fetchData';
-import Detail from '../../exercise-app/src/components/Detail';
-import ExerciseVideos from '../../exercise-app/src/components/ExerciseVideos';
-
+import {exerciseOptions, youtubeOptions, fetchData} from '@/utils/fetchData';  
+import Detail from '@/components/Detail';  
+import ExerciseVideos from '@/components/ExerciseVideos';  
 
 const ExerciseDetail = () => {
     const [exerciseDetail, setExerciseDetail] = useState({});
     const [exerciseVideos, setExerciseVideos] = useState([]);
-    const {id} = useParams();
+    const router = useRouter();  // Use Next.js router
+    const { id } = router.query;  // Get id from router.query
    
-    
     useEffect(() => {
+        // Add check for id since it might be undefined on initial render
+        if (!id) return;
+
         const fetchExercisesData = async () => {
             try {
                 const exerciseDbUrl = 'https://exercisedb.p.rapidapi.com';
@@ -25,7 +27,6 @@ const ExerciseDetail = () => {
                 const exerciseVideosData = await fetchData(`${youtubeSearchUrl}/search?query=${exerciseDetailData.name}`, youtubeOptions);
                 console.log('Raw YouTube API response:', exerciseVideosData);
                 
-                // Check if we have contents and set them properly
                 if (exerciseVideosData?.contents) {
                     setExerciseVideos(exerciseVideosData.contents);
                 } else {
@@ -42,8 +43,7 @@ const ExerciseDetail = () => {
   return (
     <Box>
         <Detail exerciseDetail={exerciseDetail} />
-        <ExerciseVideos exerciseVideos={exerciseVideos} name={exerciseDetail.name}     />
-
+        <ExerciseVideos exerciseVideos={exerciseVideos} name={exerciseDetail.name} />
     </Box>
   )
 }
