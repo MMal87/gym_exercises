@@ -50,6 +50,11 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
 
         setSearch('');
         setExercises(searchedExercises);
+
+        window.scrollTo({ 
+          top: document.getElementById('exercises').offsetTop,
+          behavior: 'smooth'
+        });
       } catch (error) {
         console.error('Error searching exercises:', error);
       }
@@ -60,7 +65,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
     <Stack alignItems="center" mt="37px"
     justifyContent="center" p="20px">
       <Typography fontWeight={700} sx={{ fontSize:{ lg: '44px', xs: '30px' }}} mb="50px" textAlign='center'>
-        Awesome Exercises You<br /> Should Know
+        Choose Your Exercises<br /> Below
       </Typography>
       <Box position="relative" mb="72px">
         <TextField
@@ -83,7 +88,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
         <Button 
           className="search-btn"
           sx={{
-            bgcolor: '#FF2625',
+            bgcolor: '#A0AEC0',
             color: '#fff',
             textTransform: 'none',
             width: {lg:'175px', xs: '80px'},

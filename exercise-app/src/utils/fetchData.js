@@ -36,5 +36,3 @@ export const fetchData = async (url, options) => {
   }
 };
 
-console.log('API Key:', process.env.NEXT_PUBLIC_RAPID_API_KEY);
-
