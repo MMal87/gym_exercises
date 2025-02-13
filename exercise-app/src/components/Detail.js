@@ -28,28 +28,21 @@ const Detail = ({ exerciseDetail }) => {
   ];
 
   return (
-    <Stack
-      gap="60px"
-      sx={{ flexDirection: { lg: "row" }, p: "20px", alignItems: "center" }}
-    >
-      <Stack gap="60px" sx={{ flexDirection: { lg: 'row' }, p: '20px', alignItems: 'center' }}>
-    <div className="detail-image-container" style={{ position: 'relative', width: '729px', height: '742px' }}>
-        <img 
+  
+
+<Stack gap="60px" sx={{ flexDirection: { lg: 'row' }, p: '20px', alignItems: 'center' }}>
+    <div style={{ position: 'relative', width: '729px', height: '742px' }}>
+        <Image 
             src={gifUrl} 
-            alt={name} 
-            loading="lazy" 
-            className="detail-image" 
-            style={{ 
-                maxWidth: '100%',
-                maxHeight: '100%',
-                display: 'block'
-            }}
+            alt={name}
+            fill
+            priority
+            style={{ objectFit: 'cover' }}
+            className="detail-image"
+            unoptimized 
         />
     </div>
-    <Stack sx={{ gap: { lg: '35px', xs: '20px' }}}>
-        {/* rest of your content */}
-    </Stack>
-</Stack>
+
       <Stack sx={{ gap: { lg: "35px", xs: "20px" } }}>
         <Typography textTransform="capitalize" variant="h3">
           {name}

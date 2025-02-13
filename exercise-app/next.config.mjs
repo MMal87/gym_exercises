@@ -1,6 +1,16 @@
+
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-};
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'v2.exercisedb.io',  // Add the domain of your GIF URLs
+      },
+    ],
+    unoptimized: true, // Add this for GIF support
+  },
+}
 
-export default nextConfig;
+export default nextConfig

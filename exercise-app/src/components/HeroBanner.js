@@ -11,7 +11,7 @@ const HeroBanner = () => {
 }} position="relative" p="20px">
     <Typography color="#FF2625"
         fontWeight="600" fontSize="26px">
-        Get Strong Club
+        Get Strong
     </Typography>
     <Typography fontWeight={700}
     sx={{ fontSize: {lg: '44px', xs: '40px'}}} mb="23px" mt="30px">
@@ -33,11 +33,11 @@ const HeroBanner = () => {
     </Typography>
     <div style={{ position: 'absolute', right: '40px', top: '0px', width: '700px', height: '900px', marginTop: '-330px' }}>
         <Image 
-            src="/images/HeroBannerImage.png" 
+            src="/images/banner.png" 
             alt="banner" 
             fill
             style={{ objectFit: 'contain' }}
-            priority  // Add this since it's a hero image
+            priority  
         />
     </div>
 </Box>
