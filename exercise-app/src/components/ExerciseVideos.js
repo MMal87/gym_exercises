@@ -35,7 +35,7 @@ const ExerciseVideos = ({ exerciseVideos = [], name }) => {
             target="_blank"
             rel="noreferrer"
           >
-            <img
+            <image
               style={{ borderTopLeftRadius: "20px" }}
               src={item.video.thumbnails[0].url}
               alt={item.video.title}

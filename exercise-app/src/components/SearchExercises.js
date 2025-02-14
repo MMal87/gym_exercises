@@ -75,27 +75,31 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
               border: 'none', 
               borderRadius:'4px' 
             },
-            width: {lg: '800px', xs: '350px'},
-            backgroundColor:'#fff', 
-            borderRadius: '40px'
+            width: {lg: '500px', xs: '350px'},
+            backgroundColor:'#3D3D3A', 
+            borderRadius: '20px',
+            '& .MuiInputBase-input::placeholder': {
+      color: '#fff' }
           }}
           height="76px"
           value={search}
           onChange={(e) => setSearch(e.target.value.toLowerCase())}
           placeholder="Search Exercises"
           type="text"
+          
         />
         <Button 
           className="search-btn"
           sx={{
-            bgcolor: '#A0AEC0',
+            backgroundColor: '#98C379',
             color: '#fff',
+            borderRadius: '8px',
+            padding: '10px 20px',
             textTransform: 'none',
-            width: {lg:'175px', xs: '80px'},
-            fontSize: {lg: '20px', xs: '14px'},
-            height:'56px',
-            position: "absolute",
-            right: '0'
+            '&:hover': {
+              backgroundColor: '#323232',
+              
+            }
           }}
           onClick={handleSearch}
         >

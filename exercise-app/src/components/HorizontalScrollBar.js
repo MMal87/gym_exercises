@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
 import { Box, IconButton } from '@mui/material';
-import { ChevronLeft, ChevronRight } from 'lucide-react'; // Next.js icons
+import { ChevronLeft, ChevronRight } from 'lucide-react'; 
 
 import BodyPart from './BodyPart';
 

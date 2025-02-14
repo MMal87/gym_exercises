@@ -30,15 +30,15 @@ const Navbar = () => {
           href="/"
           style={{
             textDecoration: "none",
-            color: "#fff",
-            borderBottom: "3px solid #fff",
+            color: "#E5E7EB"
+            
           }}
         >
           Home
         </Link>
         <a
           href="#exercises"
-          style={{ textDecoration: "none", color: "#fff" }}
+          style={{ textDecoration: "none", color: "#E5E7EB" }}
         >
           Exercises
         </a>
