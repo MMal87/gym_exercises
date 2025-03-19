@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { supabase } from '@/utils/supabaseClient'
-import { Box, TextField, Button, Typography, Stack, Alert } from '@mui/material'
+import { Box, TextField, Button, Typography, Stack, Alert, slotProps } from '@mui/material'
 
 export default function Auth() {
   const [loading, setLoading] = useState(false)
@@ -69,7 +69,10 @@ export default function Auth() {
             onChange={(e) => setEmail(e.target.value)}
             required
             fullWidth
-            InputLabelProps={{ style: { color: '#9EA3AF' } }}
+            slotProps={{
+              inputLabel: { style: { color: '#9EA3AF' } 
+            }
+          }}
             sx={{ 
               '& .MuiOutlinedInput-root': {
                 '& fieldset': { borderColor: '#3A3A3A' },
@@ -87,7 +90,10 @@ export default function Auth() {
             onChange={(e) => setPassword(e.target.value)}
             required
             fullWidth
-            InputLabelProps={{ style: { color: '#9EA3AF' } }}
+            slotProps={{
+              inputLabel: {
+               style: { color: '#9EA3AF' } }
+            }}
             sx={{ 
               '& .MuiOutlinedInput-root': {
                 '& fieldset': { borderColor: '#3A3A3A' },
