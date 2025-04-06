@@ -1,4 +1,3 @@
-Thanks for the clarification. I'll make a more accurate README that reflects your project's current state and upcoming goals:
 
 # Amplitude - Your Custom Workout Creator
 
