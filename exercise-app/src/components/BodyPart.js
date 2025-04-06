@@ -16,9 +16,7 @@ const iconsMap = {
   'upper legs': '/icons/upperLegs.png',
   core: '/icons/core.png'
 };
-
 const BodyPart = ({ item, setBodyPart, bodyPart }) => {
-  // Get the icon path, fallback to 'all' if not found
   const iconPath = iconsMap[item.toLowerCase()] || '/icons/all.png';
 
   return (
@@ -28,13 +26,20 @@ const BodyPart = ({ item, setBodyPart, bodyPart }) => {
       justifyContent="center"
       className="bodyPart-card"
       sx={{
-        borderTop: bodyPart === item ? '4px solid #ff2625' : '',
-        backgroundColor: '#fff',
-        borderBottomLeftRadius: '20px',
+        borderTop: bodyPart === item ? '4px solid #9CA3AF' : '', // Changed from red to grey
+        backgroundColor: '#2D3748', // Dark slate grey for card background
+        borderRadius: '20px', // Added top radius too
         width: '270px',
         height: '280px',
         cursor: 'pointer',
-        gap: '47px'
+        gap: '47px',
+        transition: 'all 0.3s ease', // Smooth transition for hover effects
+        boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)', // Initial shadow
+        '&:hover': {
+          transform: 'translateY(-10px)', // Lift effect on hover
+          boxShadow: '0 10px 25px rgba(0, 0, 0, 0.3)', // Deeper shadow on hover
+          backgroundColor: '#3A4757', // Slightly lighter on hover
+        }
       }}
       onClick={() => {
         setBodyPart(item);
@@ -52,7 +57,7 @@ const BodyPart = ({ item, setBodyPart, bodyPart }) => {
       <Typography 
         fontSize="24px" 
         fontWeight="bold" 
-        color="#3A1212" 
+        color="#E2E8F0" // Changed to light grey
         textTransform="capitalize"
       >
         {item}

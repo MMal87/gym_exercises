@@ -1,70 +1,74 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Amplitude - Your Custom Workout Creator
 
-## Available Scripts
+## Overview
+Amplitude is a modern web application that helps users discover and explore exercises with detailed animations and instructions. Built with Next.js and currently in active development, the platform provides a sleek, user-friendly interface with a dark-themed aesthetic.
 
-In the project directory, you can run:
+## Current Features
+- **Exercise Database**: Browse through a comprehensive collection of exercises with animated demonstrations
+- **Smart Filtering**: Filter exercises by body part, target muscles, or equipment type
+- **Responsive Design**: Enjoy a seamless experience across all devices with a modern dark-themed interface
+- **Modern UI**: Clean, dark-mode interface inspired by minimalist design principles
 
-### `npm start`
+## In Progress
+- **User Authentication**: Integration with Supabase Auth (partially implemented)
+- **Custom Workouts**: Ability to build and save personalized workout routines
+- **User Profiles**: Personal dashboard for saved workouts and preferences
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tech Stack
+- **Frontend**: Next.js, Material UI
+- **Authentication**: Supabase Auth (in progress)
+- **API**: RapidAPI Exercise Database
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+### Prerequisites
+- Node.js (v14 or higher)
+- npm or yarn
+- RapidAPI account (for Exercise API access)
+- Supabase account (for upcoming auth features)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Installation
+1. Clone the repository
+```bash
+git clone https://github.com/yourusername/amplitude-fitness.git
+cd amplitude-fitness
+```
 
-### `npm run build`
+2. Install dependencies
+```bash
+npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Create a `.env.local` file with your API keys
+```
+NEXT_PUBLIC_RAPID_API_KEY=your-rapidapi-key
+NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. Run the development server
+```bash
+npm run dev
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-### `npm run eject`
+## Usage
+- **Browse Exercises**: Explore exercises categorized by body part
+- **Search**: Use the search functionality to find specific exercises
+- **View Details**: Click on any exercise to see detailed instructions and videos
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Development Roadmap
+- Complete user authentication system
+- Implement workout creation and saving functionality
+- Add database integration for storing user data
+- Create user profiles and dashboards
+- Add workout tracking capabilities
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Credits
+- Exercise data provided by [ExerciseDB API](https://rapidapi.com/justin-WFnsXH_t6/api/exercisedb/)
+- Video content from [YouTube Search and Download API](https://rapidapi.com/h0p3rwe/api/youtube-search-and-download/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.

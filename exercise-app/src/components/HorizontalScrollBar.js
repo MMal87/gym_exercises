@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
-import { Box, Typography } from '@mui/material';
-import Image from 'next/image';
+import { Box, IconButton } from '@mui/material';
+import { ChevronLeft, ChevronRight } from 'lucide-react'; // Next.js icons
 
 import BodyPart from './BodyPart';
 
@@ -9,14 +9,24 @@ const LeftArrow = () => {
   const { scrollPrev } = useContext(VisibilityContext);
 
   return (
-    <Typography onClick={() => scrollPrev()} className="right-arrow">
-      <Image 
-        src="/icons/left-arrow.png" 
-        alt="left-arrow" 
-        width={50}  // adjust these values
-        height={50} // to match your arrow size
-      />
-    </Typography>
+    <IconButton 
+      onClick={() => scrollPrev()} 
+      sx={{ 
+        backgroundColor: '#fff',
+        position: 'fixed',
+        left: 0,
+        top: '50%',
+        transform: 'translateY(-50%)',
+        zIndex: 2,
+        '&:hover': { backgroundColor: '#f5f5f5' },
+        width: '40px',
+        height: '40px',
+        borderRadius: '50%',
+        boxShadow: '0 0 5px rgba(0,0,0,0.1)'
+      }}
+    >
+      <ChevronLeft size={24} color="#FF2625" />
+    </IconButton>
   );
 };
 
@@ -24,30 +34,53 @@ const RightArrow = () => {
   const { scrollNext } = useContext(VisibilityContext);
 
   return (
-    <Typography onClick={() => scrollNext()} className="left-arrow">
-      <Image 
-        src="/icons/right-arrow.png" 
-        alt="right-arrow" 
-        width={50}  // adjust these values
-        height={50} // to match your arrow size
-      />
-    </Typography>
+    <IconButton 
+      onClick={() => scrollNext()} 
+      sx={{ 
+        backgroundColor: '#fff',
+        position: 'fixed',
+        right: 0,
+        top: '50%',
+        transform: 'translateY(-50%)',
+        zIndex: 2,
+        '&:hover': { backgroundColor: '#f5f5f5' },
+        width: '40px',
+        height: '40px',
+        borderRadius: '50%',
+        boxShadow: '0 0 5px rgba(0,0,0,0.1)'
+      }}
+    >
+      <ChevronRight size={24} color="#FF2625" />
+    </IconButton>
   );
 };
 
 const HorizontalScrollbar = ({ data, bodyParts, setBodyPart, bodyPart }) => (
-  <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
-    {data.map((item) => (
-      <Box
-        key={item.id || item}
-        itemID={item.id || item}
-        title={item.id || item}
-        m="0 40px"
-      >
-        <BodyPart item={item} bodyPart={bodyPart} setBodyPart={setBodyPart} />
-      </Box>
-    ))}
-  </ScrollMenu>
+  <Box 
+    position="relative" 
+    width="100%" 
+    sx={{ 
+      overflow: 'hidden',
+      padding: '0 40px'
+    }}
+  >
+    <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
+      {data.map((item) => (
+        <Box
+          key={item.id || item}
+          itemID={item.id || item}
+          title={item.id || item}
+          m="0 40px"
+          sx={{
+            minWidth: '270px',
+            display: 'inline-block'
+          }}
+        >
+          <BodyPart item={item} bodyPart={bodyPart} setBodyPart={setBodyPart} />
+        </Box>
+      ))}
+    </ScrollMenu>
+  </Box>
 );
 
 export default HorizontalScrollbar;
